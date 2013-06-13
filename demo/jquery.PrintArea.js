@@ -105,7 +105,12 @@
 
     function getBody( printElement )
     {
-        return '<body><div class="' + $(printElement).attr("class") + '">' + $(printElement).html() + '</div></body>';
+        var content = '';
+        printElement.each(function(){
+            content += '<div class="' + $(this).attr("class") + '">' + $(this).html() + '</div>'
+        })
+
+        return '<body>' +  content + '</body>';
     }
 
     function getFormData( ele )
